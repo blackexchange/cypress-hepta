@@ -1,0 +1,4752 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Certidoes API",
+    "description": "API para cadastro, solicitação e emissão de Certidões do CREA-SP",
+    "version": "v1"
+  },
+  "paths": {
+    "/API/Certidoes/Certidoes": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertidaoInclusaoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/Certidoes/{incluirTipos}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "incluirTipos",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/Certidoes/{certidaoId}": {
+      "put": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "certidaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertidaoAtualizacaoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/TiposDeCertidao": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TipoCertidaoInclusaoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/TiposDeCertidao/{certidaoId}/{incluiSecao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "certidaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "incluiSecao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/TiposDeCertidao/TipoCertidaoPorId/{TipoCertidaoId}/{incluiSecao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "TipoCertidaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "incluiSecao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/Aprovadores": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AprovadorInclusaoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/Certidoes/EditarInformacaoComplementar": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "SolicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "InformacoesComplementares",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/Aprovadores/{AprovadorId}": {
+      "put": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "AprovadorId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AprovadorAtualizacaoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "AprovadorId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/TipoDeArquivo": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TipoDeArquivoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Certidoes/TipoDeArquivo/{tipoDeArquivoId}": {
+      "delete": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "tipoDeArquivoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/Solicitacao": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "operationId": "SolicitacaoCertidao",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitacaoInclusaoDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/Solicitacao/{SolicitacaoId}": {
+      "put": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "SolicitacaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Solicitacao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ConsultaSolicitacoes": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "statusSolicitacao",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "certidaoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoCertidaoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/SolicitacoesPorStatus/{StatusSolicitacao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "StatusSolicitacao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/UploadArquivosSolicitacao": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoDeArquivoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/SendArqSolicitacao": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoDeArquivoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "nomeArquivo",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/SolicitacaoPorId/{solicitacaoId}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/SolicitacaoPorART/{numeroart}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "numeroart",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ArtPorSolicitacao/{numerosolicitacao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "numerosolicitacao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ArquivoPorSolicitacao/{solicitacao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ArquivosEdicaoPreviaPorSolicitacao/{solicitacao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/SalvarPreviaPorSolicitacao": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EdicaoPreviaDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ArquivoPorExigencia": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "exigenciaId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/DownloadArquivoPorID/{arquivoId}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "arquivoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/DownloadBoletoPorSolicitacaoID/{solicitacaoId}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/BuscarARTParaSolicitacao": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "numeroART",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "numeroCreaProfissional",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipoAcervoTecnico",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dataInicio",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataFim",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/BuscarSolicitacaoPorStatus": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "statusSolicitacao",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "numeroCreaProfissional",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "certidao",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoCertidao",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Protocolo",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "NumeroCertidao",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "DataEmissaoDe",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "DataEmissaoAte",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "campoOrdenacaoStr",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/CertidaoPorSolicitacao/{solicitacao}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacao",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoAcervoTecnico",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "rascunho",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ValidarArts/{tipoCertidaoId}": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "tipoCertidaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ARTValidarDTO"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarExigenciasPendentes/{solicitacaoId}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ValidarAutenticidadeCertidao": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "numeroCertidao",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codigoAutenticidade",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/RegistrarExigencia": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "descricao",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipoArquivoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/RegistrarRecurso": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/RegistrarStatus": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoOcorrenciaId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "descricao",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipoArquivoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ResponderExigencia": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "exigenciaId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ResponderListaExigencias": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarTiposOcorrencia": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "funcionarioId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "descricaoSolicitacaoStatus",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarAcoes": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/BuscarTipoOcorrenciaPorId": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "tipoOcorrencia",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/RegistrarOcorrencia/{solicitacaoId}": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OcorrenciaDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/HistoricoSolicitacao/{solicitacaoId}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "solicitacaoId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/PagamentoSolicitacao/{protocolo}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "protocolo",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarAnaliseCertidoesAnalista": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "protocolo",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "numeroCreaProfissional",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "certidaoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoCertidaoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "statusId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "solicitante",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataEmissaoDe",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataEmissaoPara",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usuarioAnalista",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "campoOrdenacaoStr",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarAnaliseCertidoesGestor": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "protocolo",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "numeroCreaProfissional",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "certidaoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipoCertidaoId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "statusId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "solicitante",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataEmissaoDe",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataEmissaoPara",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usuarioAnalista",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usuarioGestor",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "unidadeId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "campoOrdenacaoStr",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePagination"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarAnalistas": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarGestores": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/AtribuirSolicitacaoAnalista": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalistaSolicitacao"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/AtribuirSolicitacaoGestor": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtribuicaoSolicitacaoAnalistaDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarStatusSolicitacao": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarStatusSolicitacaoPorPermissao": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "pId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/LoginCreaApi": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/GerarBoleto": {
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BoletoRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarMotivoAtribuicao": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/ListarUnidade": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Solicitacoes/BuscarFuncioarioPorLogin": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "loginFuncionario",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/CREASP/BuscaContratantesProfissional": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "creasp",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "periodoCertificarDe",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "periodoCertificarAte",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/CREASP/ListaStatusARTS": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/CREASP/BuscaARTSContratante/{creasp}": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "creasp",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cpfcnpj",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipoCertidao",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataInicio",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataFim",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ART": {
+        "type": "object",
+        "properties": {
+          "artId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroArt": {
+            "type": "string",
+            "nullable": true
+          },
+          "contratante": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoART": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusArt": {
+            "type": "string",
+            "nullable": true
+          },
+          "celebradoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "artsVinculadas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ARTVinculada"
+            },
+            "nullable": true
+          },
+          "solicitacoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Solicitacao"
+            },
+            "nullable": true
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ARTValidarDTO": {
+        "type": "object",
+        "properties": {
+          "artID": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoArt": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusArt": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ARTVinculada": {
+        "type": "object",
+        "properties": {
+          "artVinculadaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroArt": {
+            "type": "string",
+            "nullable": true
+          },
+          "artId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "art": {
+            "$ref": "#/components/schemas/ART"
+          },
+          "aptaTipoStatus": {
+            "type": "boolean"
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "celebradoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "statusArt": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ARTVinculadaDTO": {
+        "type": "object",
+        "properties": {
+          "numeroArt": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnalistaSolicitacao": {
+        "type": "object",
+        "properties": {
+          "analistaSolicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "analistaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "sucess": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "result": {
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiResponsePagination": {
+        "type": "object",
+        "properties": {
+          "sucess": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "result": {
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "pagina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limite": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroDeRegistros": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ultimaPagina": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AprovacaoSolicitacao": {
+        "type": "object",
+        "properties": {
+          "aprovacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aprovadorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aprovador": {
+            "$ref": "#/components/schemas/Aprovador"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacao": {
+            "$ref": "#/components/schemas/Solicitacao"
+          },
+          "statusAprovacao": {
+            "$ref": "#/components/schemas/StatusAprovacao"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Aprovador": {
+        "type": "object",
+        "properties": {
+          "aprovadorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "aprovacoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AprovacaoSolicitacao"
+            },
+            "nullable": true
+          },
+          "tiposCertidoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TipoCertidao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AprovadorAtualizacaoDTO": {
+        "type": "object",
+        "properties": {
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AprovadorInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AprovadorTipoCertidaoDTO": {
+        "type": "object",
+        "properties": {
+          "aprovadorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Arquivo": {
+        "type": "object",
+        "properties": {
+          "arquivoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nomeArquivo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tamanho": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "localArquivo": {
+            "type": "string",
+            "nullable": true
+          },
+          "formato": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDeArquivoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoDeArquivo": {
+            "$ref": "#/components/schemas/TipoDeArquivo"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacao": {
+            "$ref": "#/components/schemas/Solicitacao"
+          },
+          "exigenciaId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "recursoId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "origemDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "ocorrenciaId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArquivoEdicaoPreviaDTO": {
+        "type": "object",
+        "properties": {
+          "arquivoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "atribuido": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArtDTO": {
+        "type": "object",
+        "properties": {
+          "numeroArt": {
+            "type": "string",
+            "nullable": true
+          },
+          "contratante": {
+            "type": "string",
+            "nullable": true
+          },
+          "aRTVinculadas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ARTVinculadaDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AtribuicaoSolicitacaoAnalistaDTO": {
+        "type": "object",
+        "properties": {
+          "gestorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "analistaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "motivoAtribuicaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BoletoRequestDTO": {
+        "type": "object",
+        "properties": {
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nomeSacado": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpfCnpj": {
+            "type": "string",
+            "nullable": true
+          },
+          "protocolo": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroCREA": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenAccess": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CampoDaSecaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "conteudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "obrigatorio": {
+            "type": "boolean"
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/TipoCampo"
+          },
+          "tipoConteudo": {
+            "$ref": "#/components/schemas/TipoConteudoCampo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CampoSecao": {
+        "type": "object",
+        "properties": {
+          "campoSecaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secao": {
+            "$ref": "#/components/schemas/SecaoTipoCertidao"
+          },
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "conteudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "obrigatorio": {
+            "type": "boolean"
+          },
+          "tipo": {
+            "$ref": "#/components/schemas/TipoCampo"
+          },
+          "tipoConteudo": {
+            "$ref": "#/components/schemas/TipoConteudoCampo"
+          },
+          "tipoDeArquivoId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CampoSolicitacao": {
+        "type": "object",
+        "properties": {
+          "campoSolicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secaoSolicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secaoSolicitacao": {
+            "$ref": "#/components/schemas/SecaoSolicitacao"
+          },
+          "tipoCampo": {
+            "$ref": "#/components/schemas/TipoCampo"
+          },
+          "tipoConteudo": {
+            "$ref": "#/components/schemas/TipoConteudoCampo"
+          },
+          "conteudo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CampoSolicitacaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoCampo": {
+            "$ref": "#/components/schemas/TipoCampo"
+          },
+          "tipoConteudo": {
+            "$ref": "#/components/schemas/TipoConteudoCampo"
+          },
+          "conteudo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Certidao": {
+        "type": "object",
+        "properties": {
+          "certidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tiposDeCertidao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TipoCertidao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertidaoAtualizacaoDTO": {
+        "type": "object",
+        "properties": {
+          "certidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertidaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EdicaoPreviaDTO": {
+        "type": "object",
+        "properties": {
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "artId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "funcionarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "informacoesComplementares": {
+            "type": "string",
+            "nullable": true
+          },
+          "arquivos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArquivoEdicaoPreviaDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmpresaDTO": {
+        "type": "object",
+        "properties": {
+          "nomeEmpresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroCrea": {
+            "type": "string",
+            "nullable": true
+          },
+          "cnpj": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Exigencia": {
+        "type": "object",
+        "properties": {
+          "exigenciaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataInclusao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusExigencia"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacao": {
+            "$ref": "#/components/schemas/Solicitacao"
+          },
+          "tipoArquivoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "arquivos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Arquivo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HistoricoSolicitacao": {
+        "type": "object",
+        "properties": {
+          "historicoSolicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observacoes": {
+            "type": "string",
+            "nullable": true
+          },
+          "evento": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataOcorrencia": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacao": {
+            "$ref": "#/components/schemas/Solicitacao"
+          },
+          "executor": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "arquivosAnexados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Arquivo"
+            },
+            "nullable": true
+          },
+          "ocorrenciaId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tipoHistorico": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpStatusCode": {
+        "enum": [
+          100,
+          101,
+          102,
+          103,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          226,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          421,
+          422,
+          423,
+          424,
+          426,
+          428,
+          429,
+          431,
+          451,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          510,
+          511
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "OcorrenciaDTO": {
+        "type": "object",
+        "properties": {
+          "tipoOcorrenciaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "campoArquivos": {
+            "type": "boolean"
+          },
+          "campoDocumentos": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProfissionalDTO": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "rnd": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroCREA": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Receita": {
+        "type": "object",
+        "properties": {
+          "receitaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
+          },
+          "parametroReceita": {
+            "type": "string",
+            "nullable": true
+          },
+          "parametroTipoEmissao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecaoSolicitacao": {
+        "type": "object",
+        "properties": {
+          "secaoSolicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solicitacao": {
+            "$ref": "#/components/schemas/Solicitacao"
+          },
+          "camposSolicitacao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CampoSolicitacao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecaoSolicitacaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "secaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "camposSolicitacao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CampoSolicitacaoInclusaoDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecaoTipoCertidao": {
+        "type": "object",
+        "properties": {
+          "secaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoCertidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoCertidao": {
+            "$ref": "#/components/schemas/TipoCertidao"
+          },
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "camposSecao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CampoSecao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecaoTipoCertidaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordem": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "camposSecao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CampoDaSecaoInclusaoDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Solicitacao": {
+        "type": "object",
+        "properties": {
+          "solicitacaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "protocolo": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataInclusao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dataAtualizacao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoCertidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoCertidao": {
+            "$ref": "#/components/schemas/TipoCertidao"
+          },
+          "periodoCertificarDe": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodoCertificarAte": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoPessoa": {
+            "$ref": "#/components/schemas/TipoPessoa"
+          },
+          "subempreitada": {
+            "type": "boolean"
+          },
+          "descSubempreitada": {
+            "type": "string",
+            "nullable": true
+          },
+          "rascunho": {
+            "type": "boolean"
+          },
+          "prioridade": {
+            "type": "boolean"
+          },
+          "aceiteDosTermos": {
+            "type": "boolean"
+          },
+          "observacoes": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusSolicitacao": {
+            "$ref": "#/components/schemas/StatusSolicitacao"
+          },
+          "arts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ART"
+            },
+            "nullable": true
+          },
+          "exigencias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Exigencia"
+            },
+            "nullable": true
+          },
+          "arquivosSolicitacao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Arquivo"
+            },
+            "nullable": true
+          },
+          "secoesSolicitacao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecaoSolicitacao"
+            },
+            "nullable": true
+          },
+          "aprovacoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AprovacaoSolicitacao"
+            },
+            "nullable": true
+          },
+          "historicoSolicitacao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HistoricoSolicitacao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SolicitacaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "tipoCertidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "periodoCertificarDe": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodoCertificarAte": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoPessoa": {
+            "$ref": "#/components/schemas/TipoPessoa"
+          },
+          "profissional": {
+            "$ref": "#/components/schemas/ProfissionalDTO"
+          },
+          "empresa": {
+            "$ref": "#/components/schemas/EmpresaDTO"
+          },
+          "subempreitada": {
+            "type": "boolean"
+          },
+          "descSubempreitada": {
+            "type": "string",
+            "nullable": true
+          },
+          "rascunho": {
+            "type": "boolean"
+          },
+          "prioridade": {
+            "type": "boolean"
+          },
+          "aceiteDosTermos": {
+            "type": "boolean"
+          },
+          "observacoes": {
+            "type": "string",
+            "nullable": true
+          },
+          "arts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArtDTO"
+            },
+            "nullable": true
+          },
+          "camposSolicitacao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecaoSolicitacaoInclusaoDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatusAprovacao": {
+        "enum": [
+          "Reprovado",
+          "Aprovado"
+        ],
+        "type": "string"
+      },
+      "StatusExigencia": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "StatusSolicitacao": {
+        "enum": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TipoCampo": {
+        "enum": [
+          "input",
+          "textarea",
+          "label",
+          "file",
+          "date"
+        ],
+        "type": "string"
+      },
+      "TipoCertidao": {
+        "type": "object",
+        "properties": {
+          "tipoCertidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "prefixoProtocolo": {
+            "type": "string",
+            "nullable": true
+          },
+          "prefixoCertidao": {
+            "type": "string",
+            "nullable": true
+          },
+          "informativo": {
+            "type": "string",
+            "nullable": true
+          },
+          "prazoAtendimento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geraPagamento": {
+            "type": "boolean"
+          },
+          "incluirART": {
+            "type": "boolean"
+          },
+          "permiteProfissional": {
+            "type": "boolean"
+          },
+          "permiteEmpresa": {
+            "type": "boolean"
+          },
+          "permiteSegundaVia": {
+            "type": "boolean"
+          },
+          "permiteComplementar": {
+            "type": "boolean"
+          },
+          "subempreitada": {
+            "type": "boolean"
+          },
+          "aprovadores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aprovador"
+            },
+            "nullable": true
+          },
+          "secoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecaoTipoCertidao"
+            },
+            "nullable": true
+          },
+          "tiposDeArquivo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TipoDeArquivo"
+            },
+            "nullable": true
+          },
+          "certidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "certidao": {
+            "$ref": "#/components/schemas/Certidao"
+          },
+          "receitaId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "receita": {
+            "$ref": "#/components/schemas/Receita"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoCertidaoInclusaoDTO": {
+        "type": "object",
+        "properties": {
+          "certidaoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "prefixoProtocolo": {
+            "type": "string",
+            "nullable": true
+          },
+          "prefixoCertidao": {
+            "type": "string",
+            "nullable": true
+          },
+          "informativo": {
+            "type": "string",
+            "nullable": true
+          },
+          "prazoAtendimento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "geraPagamento": {
+            "type": "boolean"
+          },
+          "incluirART": {
+            "type": "boolean"
+          },
+          "permiteProfissional": {
+            "type": "boolean"
+          },
+          "permiteEmpresa": {
+            "type": "boolean"
+          },
+          "permiteSegundaVia": {
+            "type": "boolean"
+          },
+          "permiteComplementar": {
+            "type": "boolean"
+          },
+          "subempreitada": {
+            "type": "boolean"
+          },
+          "receitaId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "aprovadores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AprovadorTipoCertidaoDTO"
+            },
+            "nullable": true
+          },
+          "secoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecaoTipoCertidaoInclusaoDTO"
+            },
+            "nullable": true
+          },
+          "tiposDeArquivo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TipoDeArquivoDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoConteudoCampo": {
+        "enum": [
+          "text",
+          "label",
+          "file",
+          "date",
+          "email",
+          "number",
+          "checkbox"
+        ],
+        "type": "string"
+      },
+      "TipoDeArquivo": {
+        "type": "object",
+        "properties": {
+          "tipoDeArquivoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "informativo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tiposCertidao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TipoCertidao"
+            },
+            "nullable": true
+          },
+          "arquivos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Arquivo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoDeArquivoDTO": {
+        "type": "object",
+        "properties": {
+          "tipoDeArquivoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "informativo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoPessoa": {
+        "enum": [
+          "PessoaFisica",
+          "PessoaJuridica",
+          "Ambos"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}
